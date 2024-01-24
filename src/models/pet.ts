@@ -6,34 +6,7 @@ type Pet = {
     name: string,
     color: string,
     sexo: PetSex
-}
-export const Pet = {
-    getAll: (): Pet[] => {
-        return data;
-    },
-    getFromType: (type: PetType): Pet[] => {
-            return data.filter(item => {
-                if(item.type ===type) {
-                    return true;
-                } else{
-                    return false;
-                }
-            });
-    },
-    //função simplificada
-    //return data.filter(item =>item.type===type);
-    getFromName: (name: string): Pet[] => {
-        return data.filter(item => {
-            if(item.name.toLowerCase().indexOf(name) > -1){ //quase indexOf acha anda returna -1
-                return true;
-            } else {
-                return false;
-            }
-        })
-    }
-    
-}
-
+};
 const data: Pet[] = [
     {
         type: 'dog',
@@ -155,6 +128,34 @@ const data: Pet[] = [
         sexo: 'Masculino'
     },
 ]
+export const Pet = {
+    getAll: (): Pet[] => {
+        return data;
+    },
+    getFromType: (type: PetType): Pet[] => {
+            return data.filter(item => {
+                if(item.type ===type) {
+                    return true;
+                } else{
+                    return false;
+                }
+            });
+    },
+    //função simplificada
+    //return data.filter(item =>item.type===type);
+    getFromName: (name: string): Pet[] => {
+        return data.filter(item => {
+            if(item.name.toLowerCase().indexOf(name.toLocaleLowerCase()) > -1){ //quase indexOf acha anda returna -1
+                return true;
+            } else {
+                return false;
+            }
+        })
+    }
+    
+}
+
+
 export const pet = {
     getAll: (): Pet[] => {
         return data;
